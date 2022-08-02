@@ -32,9 +32,9 @@ object TheMovieDBClient {
 
             return@Interceptor chain.proceed(request)
         }
-        val okHttpClient:OkHttpClient = okhttpClient.Builder()
+        val okHttpClient:OkHttpClient = OkHttpClient.Builder()
             .addInterceptor(requestInterceptor)
-            .connectionTimeout(60, TimeUnit.SECONDS)
+            .connectTimeout(60, TimeUnit.SECONDS)
             .build()
         return Retrofit.Builder()
             .client(okHttpClient)
