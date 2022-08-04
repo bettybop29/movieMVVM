@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.moviemvvm">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,7 +16,10 @@
         android:theme="@style/Theme.MovieMVVM"
         tools:targetApi="31">
         <activity
-            android:name=".SingleMovie"
+            android:name=".ui.ListMovieActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SingleMovieActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -10,13 +10,14 @@ import java.util.concurrent.TimeUnit
 const val API_KEY = "b18cb183aac8625fc2832e65dae92f9e"
 const val BASE_URL = "https://api.themoviedb.org/3/"
 
-const val POSTER_BASE_URL = "https://image.tmdb.org/t/p/w342"
+
 
 //https://api.themoviedb.org/3/movie/299534?api_key=b18cb183aac8625fc2832e65dae92f9e&language=en-US
 //https://api.themoviedb.org/3/movie/popular?api_key=b18cb183aac8625fc2832e65dae92f9e&language=en-US&page=1
 //https://api.themoviedb.org/3/
 
 object TheMovieDBClient {
+    val POSTER_BASE_URL = "https://image.tmdb.org/t/p/w342/"
     fun getClient(): TheMovieDBInterface {
 
         val requestInterceptor = Interceptor { chain ->
