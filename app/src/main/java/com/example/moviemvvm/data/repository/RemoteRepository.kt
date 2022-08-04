@@ -6,5 +6,5 @@ import io.reactivex.Single
 
 interface RemoteRepository {
     fun getPopularMovies():Single<PopularMoviesResponse>
-    fun getMovieDetails():Single<MovieDetails>
+    fun getMovieDetails(id:String):Single<MovieDetails>
 }

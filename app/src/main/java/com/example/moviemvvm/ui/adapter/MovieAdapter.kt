@@ -42,6 +42,7 @@ class MovieAdapter(private var results: List<Result>) :
         holder.cvMovie.setOnClickListener {
           context.let {
               val intent = Intent(context, SingleMovieActivity::class.java)
+              intent.putExtra("movie_id", item.id)
               context.startActivity(intent)
           }
         }

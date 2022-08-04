@@ -9,7 +9,7 @@ class RemoteRepositoryImpl (private val theMovieDBInterface: TheMovieDBInterface
     override fun getPopularMovies(): Single<PopularMoviesResponse> {
         return theMovieDBInterface.getPopularMovies()
     }
-    override fun getMovieDetails(): Single<MovieDetails> {
-        return theMovieDBInterface.getMovieDetails()
+    override fun getMovieDetails(id:String): Single<MovieDetails> {
+        return theMovieDBInterface.getMovieDetails(id)
     }
 }

@@ -4,8 +4,7 @@ import com.example.moviemvvm.data.vo.MovieDetails
 import com.example.moviemvvm.data.vo.PopularMoviesResponse
 import io.reactivex.Single
 import retrofit2.http.GET
-
-
+import retrofit2.http.Path
 
 
 interface TheMovieDBInterface {
@@ -16,7 +15,7 @@ interface TheMovieDBInterface {
 
    @GET("movie/{movie_id}")
 //   fun getMovieDetails(@Path("movie_id")id:Int):Single<MovieDetails>
-   fun getMovieDetails(): Single<MovieDetails>
+   fun getMovieDetails(@Path("movie_id")id:String): Single<MovieDetails>
 //   https://api.themoviedb.org/3/movie/popular?api_key=b18cb183aac8625fc2832e65dae92f9e&language=en-US&page=1
    @GET("movie/popular")
    fun getPopularMovies():Single<PopularMoviesResponse>
