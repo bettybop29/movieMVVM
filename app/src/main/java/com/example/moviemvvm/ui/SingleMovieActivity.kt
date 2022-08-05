@@ -5,17 +5,12 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
-import com.example.moviemvvm.R
 import com.example.moviemvvm.data.api.TheMovieDBClient
-import com.example.moviemvvm.databinding.ActivityListMovieBinding
-import com.example.moviemvvm.databinding.ActivityMainBinding
 import com.example.moviemvvm.databinding.ActivitySingleMovieBinding
-import com.example.moviemvvm.ui.viewmodel.ListMovieViewModel
 import com.example.moviemvvm.ui.viewmodel.SingleDetailMovieViewModel
 
 class SingleMovieActivity : AppCompatActivity() {
 
-//    private lateinit var binding: ActivityListMovieBinding
 private lateinit var binding: ActivitySingleMovieBinding
 private val viewModel: SingleDetailMovieViewModel by viewModels()
 
@@ -34,7 +29,6 @@ private val viewModel: SingleDetailMovieViewModel by viewModels()
             binding.tvDetailMovie.text = it.title
             binding.tvDetailOverview.text = it.releaseDate
             binding.tvDetailVote.text = it.tagline
-
             Glide.with(binding.ivDetailMovie).load("${TheMovieDBClient.POSTER_BASE_URL}${it.posterPath}").into(binding.ivDetailMovie)
         })
     }

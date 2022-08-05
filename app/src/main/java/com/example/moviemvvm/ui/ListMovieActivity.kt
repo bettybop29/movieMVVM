@@ -6,7 +6,6 @@ import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.moviemvvm.R
 import com.example.moviemvvm.databinding.ActivityListMovieBinding
 import com.example.moviemvvm.ui.adapter.MovieAdapter
 import com.example.moviemvvm.ui.viewmodel.ListMovieViewModel

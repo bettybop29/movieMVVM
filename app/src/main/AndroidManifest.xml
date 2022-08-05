@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.moviemvvm">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieMVVM"
         tools:targetApi="31">
+        <activity
+            android:name=".ListMovieTrailerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ListNowPlayingActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.ListMovieActivity"
             android:exported="false" />

@@ -10,20 +10,34 @@
         android:id="@+id/btnListMovie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:paddingHorizontal="27dp"
+        android:paddingVertical="15dp"
+        android:text="List Movie"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/btnNowPlayingMovie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Now Playing"
         android:background="#dfefdd"
-        app:layout_constraintTop_toBottomOf="@+id/btnListMovie"
+        android:text="Now Playing"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/btnListMovie" />
+
+    <Button
+        android:id="@+id/btnTrailerMovie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="37dp"
+        android:paddingVertical="15dp"
+        android:text="Trailer"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnNowPlayingMovie" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

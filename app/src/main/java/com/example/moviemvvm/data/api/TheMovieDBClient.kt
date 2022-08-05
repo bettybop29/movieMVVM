@@ -15,9 +15,12 @@ const val BASE_URL = "https://api.themoviedb.org/3/"
 //https://api.themoviedb.org/3/movie/299534?api_key=b18cb183aac8625fc2832e65dae92f9e&language=en-US
 //https://api.themoviedb.org/3/movie/popular?api_key=b18cb183aac8625fc2832e65dae92f9e&language=en-US&page=1
 //https://api.themoviedb.org/3/
+//https://api.themoviedb.org/3/movie/616037/videos?api_key=b18cb183aac8625fc2832e65dae92f9e&language=en-US
 
 object TheMovieDBClient {
+//    https://www.themoviedb.org/movie/616037-thor-love-and-thunder#
     val POSTER_BASE_URL = "https://image.tmdb.org/t/p/w342/"
+    val TRAILER_BASE_URL = "https://www.youtube.com/watch?v="
     fun getClient(): TheMovieDBInterface {
 
         val requestInterceptor = Interceptor { chain ->
