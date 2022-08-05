@@ -1,9 +1,6 @@
 package com.example.moviemvvm.data.repository
 
-import com.example.moviemvvm.data.vo.MovieDetails
-import com.example.moviemvvm.data.vo.MovieTrailerResponse
-import com.example.moviemvvm.data.vo.NowPlayingResponse
-import com.example.moviemvvm.data.vo.PopularMoviesResponse
+import com.example.moviemvvm.data.vo.*
 import io.reactivex.Single
 
 interface RemoteRepository {

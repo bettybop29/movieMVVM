@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvNowPlaying"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,17 +47,16 @@
 
                 <Button
                     android:id="@+id/btnTrailerMovie"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/lightgreen"
-                    android:textSize="12sp"
-                    android:text="Watch Trailer"
-                    android:textColor="@color/white" />
+                    android:text="Trailer"
+                    android:textSize="12dp"
+                    android:layout_marginTop="16dp"/>
             </LinearLayout>
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

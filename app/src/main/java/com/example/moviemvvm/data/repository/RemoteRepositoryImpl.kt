@@ -1,10 +1,7 @@
 package com.example.moviemvvm.data.repository
 
 import com.example.moviemvvm.data.api.TheMovieDBInterface
-import com.example.moviemvvm.data.vo.MovieDetails
-import com.example.moviemvvm.data.vo.MovieTrailerResponse
-import com.example.moviemvvm.data.vo.NowPlayingResponse
-import com.example.moviemvvm.data.vo.PopularMoviesResponse
+import com.example.moviemvvm.data.vo.*
 import io.reactivex.Single
 
 class RemoteRepositoryImpl (private val theMovieDBInterface: TheMovieDBInterface): RemoteRepository {
@@ -20,4 +17,5 @@ class RemoteRepositoryImpl (private val theMovieDBInterface: TheMovieDBInterface
     override fun getTrailerMovies(id: String): Single<MovieTrailerResponse> {
         return theMovieDBInterface.getTrailerMovies(id)
     }
+
 }
