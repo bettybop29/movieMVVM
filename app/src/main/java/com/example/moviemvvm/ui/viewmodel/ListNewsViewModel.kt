@@ -21,8 +21,8 @@ class ListNewsViewModel: ViewModel() {
         remoteNewsRepository = RemoteNewsRepositoryImpl(ArticleAppleDBClient.getClient())
     }
 
-    fun getNews(): MutableLiveData<NewsAppleResponse> = news
-    fun getNewsApple() {
+    fun getNews():MutableLiveData<NewsAppleResponse> = news
+    fun getNewsApple(){
         compositeDisposable.add(
             remoteNewsRepository.getNewsApple().subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -30,12 +30,15 @@ class ListNewsViewModel: ViewModel() {
                     override fun onSuccess(t: NewsAppleResponse) {
                         news.value = t
                     }
+
                     override fun onError(e: Throwable) {
-                        Log.e("List News Viewmodel", "error = $e")
+                       Log.e("List News VIew Model", "error = $e")
                     }
+
                 })
         )
     }
+
     override fun onCleared() {
         super.onCleared()
         compositeDisposable.clear()

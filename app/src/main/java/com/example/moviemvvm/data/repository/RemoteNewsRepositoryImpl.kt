@@ -6,6 +6,6 @@ import io.reactivex.Single
 
 class RemoteNewsRepositoryImpl (private val articleAppleInterface: ArticleAppleInterface): RemoteNewsRepository{
     override fun getNewsApple(): Single<NewsAppleResponse> {
-        return articleAppleInterface.getArticleApple()
+        return articleAppleInterface.getNewsApple()
     }
 }

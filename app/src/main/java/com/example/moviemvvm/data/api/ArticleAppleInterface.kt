@@ -7,5 +7,5 @@ import retrofit2.http.GET
 interface ArticleAppleInterface {
 
     @GET("v2/everything")
-    fun getArticleApple():Single<NewsAppleResponse>
+    fun getNewsApple():Single<NewsAppleResponse>
 }

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.moviemvvm.R
 import com.example.moviemvvm.data.vo.Article
 
-class NewsAdapter (private var result: List<Article>):
+class NewsAdapter (private var articles: List<Article>):
 RecyclerView.Adapter<NewsAdapter.MyViewHolder>(){
     lateinit var context: Context
     inner class MyViewHolder(view:View): RecyclerView.ViewHolder(view) {
@@ -26,13 +26,13 @@ RecyclerView.Adapter<NewsAdapter.MyViewHolder>(){
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val item = result[position]
+        val item = articles[position]
         holder.tvNews.text = item.title
         holder.tvSubnews.text = item.author
         holder.tvContent.text = item.content
     }
 
     override fun getItemCount(): Int {
-        return result.size
+        return articles.size
     }
 }
