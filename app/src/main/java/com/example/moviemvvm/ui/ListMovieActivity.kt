@@ -12,7 +12,6 @@ import com.example.moviemvvm.ui.viewmodel.ListMovieViewModel
 
 class ListMovieActivity : AppCompatActivity() {
     private val viewModel: ListMovieViewModel by viewModels()
-
     lateinit var binding: ActivityListMovieBinding
     lateinit var adapter: MovieAdapter
 

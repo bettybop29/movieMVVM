@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface ArticleAppleInterface {
 
-    @GET("newsapi.org/v2/")
+    @GET("v2/everything")
     fun getArticleApple():Single<NewsAppleResponse>
 }
