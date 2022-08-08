@@ -20,15 +20,12 @@ class NewsAppleActivity : AppCompatActivity() {
         binding = ActivityNewsAppleBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.listnews.layoutManager = LinearLayoutManager(applicationContext)
-
         viewModel.getNewsApple()
-
         setObserver()
-
     }
     private fun setObserver() {
         viewModel.getNews().observe(this, Observer {
-            Log.i("list News activity", "response = $it")
+            Log.d("list News activity", "response = $it")
             adapter = NewsAdapter(it.articles)
             binding.listnews.adapter = adapter
         })

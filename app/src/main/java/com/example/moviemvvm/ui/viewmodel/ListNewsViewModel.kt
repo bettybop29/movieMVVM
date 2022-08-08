@@ -30,15 +30,12 @@ class ListNewsViewModel: ViewModel() {
                     override fun onSuccess(t: NewsAppleResponse) {
                         news.value = t
                     }
-
                     override fun onError(e: Throwable) {
                         Log.e("List News Viewmodel", "error = $e")
                     }
-
                 })
         )
     }
-
     override fun onCleared() {
         super.onCleared()
         compositeDisposable.clear()
