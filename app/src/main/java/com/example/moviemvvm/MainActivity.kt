@@ -6,8 +6,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.moviemvvm.databinding.ActivityMainBinding
 import com.example.moviemvvm.ui.ListMovieActivity
+import com.example.moviemvvm.ui.ListNewsActivity
 import com.example.moviemvvm.ui.ListNowPlayingActivity
-import com.example.moviemvvm.ui.NewsAppleActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.btnTrailerMovie.setOnClickListener {
-            val i = Intent(this, NewsAppleActivity::class.java)
+            val i = Intent(this, ListNewsActivity::class.java)
             startActivity(i)
         }
     }

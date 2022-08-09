@@ -9,18 +9,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.moviemvvm.R
 import com.example.moviemvvm.data.vo.Article
 
-class NewsAdapter (private var articles: List<Article>):
-RecyclerView.Adapter<NewsAdapter.MyViewHolder>(){
-    lateinit var context: Context
-    inner class MyViewHolder(view:View): RecyclerView.ViewHolder(view) {
-        var tvNews: TextView = view.findViewById(R.id.tvNews)
-        var tvSubnews: TextView = view.findViewById(R.id.tvSubnews)
-        var tvContent: TextView = view.findViewById(R.id.tvContent)
-    }
+class NewsAdapter(private var articles: List<Article>):
+    RecyclerView.Adapter<NewsAdapter.MyViewHolder>() {
+        lateinit var context: Context
+        inner class MyViewHolder(view:View):RecyclerView.ViewHolder(view) {
+            var tvNews: TextView = view.findViewById(R.id.tvTitleNews)
+            var tvSubnews: TextView = view.findViewById(R.id.tvSubnews)
+            var tvContent: TextView = view.findViewById(R.id.tvContent)
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-       val itemView = LayoutInflater.from(parent.context)
-           .inflate(R.layout.item_news, parent, false)
+        val itemView = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_news, parent, false)
         context = parent.context
         return MyViewHolder(itemView)
     }
@@ -33,6 +33,6 @@ RecyclerView.Adapter<NewsAdapter.MyViewHolder>(){
     }
 
     override fun getItemCount(): Int {
-        return articles.size
+        return  articles.size
     }
 }
