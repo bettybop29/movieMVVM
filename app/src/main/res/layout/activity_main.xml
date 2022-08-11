@@ -28,8 +28,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TEST"
-                android:textAlignment="center" />
+                android:text="Menu"
+                android:textAlignment="center"
+                />
         </LinearLayout>
 
         <Button
@@ -64,7 +65,7 @@
             android:layout_height="wrap_content"
             android:paddingHorizontal="37dp"
             android:paddingVertical="15dp"
-            android:text="Trailer"
+            android:text="News"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnNowPlayingMovie" />
