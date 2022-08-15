@@ -39,6 +39,7 @@ class MovieAdapter(private var results: List<Result>) :
         holder.tvSubtitle.text = item.overview
 
         Glide.with(holder.ivMovie).load("${TheMovieDBClient.POSTER_BASE_URL}${item.posterPath}").into(holder.ivMovie)
+
         holder.cvMovie.setOnClickListener {
           context.let {
               val intent = Intent(context, SingleMovieActivity::class.java)

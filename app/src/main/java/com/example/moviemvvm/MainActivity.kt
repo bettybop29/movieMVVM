@@ -1,35 +1,53 @@
 package com.example.moviemvvm
-import android.content.ActivityNotFoundException
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.moviemvvm.databinding.ActivityMainBinding
-import com.example.moviemvvm.ui.ListMovieActivity
-import com.example.moviemvvm.ui.ListNewsActivity
-import com.example.moviemvvm.ui.ListNowPlayingActivity
+import com.example.moviemvvm.ui.fragment.moviesFragment
+import com.example.moviemvvm.ui.fragment.newsFragment
+
 
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
 
+    private lateinit var binding: ActivityMainBinding
+    private val news = newsFragment()
+    private val movies = moviesFragment()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.btnListMovie.setOnClickListener {
-            val intent = Intent(this, ListMovieActivity::class.java)
-            startActivity(intent)
+        binding.bottomnavigation.background = null
+//        binding.btnListMovie.setOnClickListener {
+//            val intent = Intent(this, ListMovieActivity::class.java)
+//            startActivity(intent)
+//        }
+//        binding.btnNowPlayingMovie.setOnClickListener {
+//            val intent = Intent(this, ListNowPlayingActivity::class.java)
+//            startActivity(intent)
+//        }
+//        binding.btnTrailerMovie.setOnClickListener {
+//            val i = Intent(this, ListNewsActivity::class.java)
+//            startActivity(i)
+//        }
+        replaceFragment(news)
+        binding.bottomnavigation.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.icMovies -> replaceFragment(movies)
+                R.id.icNews -> replaceFragment(news)
+            }
+            true
         }
-        binding.btnNowPlayingMovie.setOnClickListener {
-            val intent = Intent(this, ListNowPlayingActivity::class.java)
-            startActivity(intent)
-        }
-        binding.btnTrailerMovie.setOnClickListener {
-            val i = Intent(this, ListNewsActivity::class.java)
-            startActivity(i)
-        }
+
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.frameContainer, fragment)
+            transaction.commit()
+
     }
 
 }

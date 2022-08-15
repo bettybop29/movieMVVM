@@ -14,7 +14,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 
-class ListNowMoviesViewModel : ViewModel(){
+class   ListNowMoviesViewModel : ViewModel(){
     private val nowMovies = MutableLiveData<NowPlayingResponse>()
     private val compositeDisposable = CompositeDisposable()
     private val moviesTrailer = MutableLiveData<MovieTrailerResponse>()

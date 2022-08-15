@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit
 
 
 const val APINEWS_KEY = "7f36d819dacb41d0a148577a8379ae2a"
-const val BASENEWS_URL = "https://newsapi.org/v2/"
+const val BASENEWS_URL = "https://newsapi.org/"
 
 object ArticleAppleDBClient {
     fun getClient(): ArticleAppleInterface {
@@ -17,7 +17,7 @@ object ArticleAppleDBClient {
             val url = chain.request()
                 .url()
                 .newBuilder()
-                .addQueryParameter("api_key", APINEWS_KEY)
+                    .addQueryParameter("apiKey", APINEWS_KEY)
                 .build()
             val request = chain.request()
                 .newBuilder()
