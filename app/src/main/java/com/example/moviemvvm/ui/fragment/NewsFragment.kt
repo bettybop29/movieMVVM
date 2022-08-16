@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
@@ -37,7 +38,8 @@ class newsFragment : Fragment() {
     private val viewModel: ListNewsViewModel by viewModels()
     lateinit var binding: ActivityListNewsBinding
     lateinit var adapter: NewsAdapter
-
+    lateinit var editText: EditText
+    lateinit var input: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,7 +77,25 @@ class newsFragment : Fragment() {
             Snackbar.make(binding.btnNewsTesla, "tesla", Snackbar.LENGTH_SHORT).show()
 
         }
+        editText = binding.etInputNews
+        val btnSearch: Button = binding.btnNewsSearch
+        btnSearch.setOnClickListener {
+            input = editText.text.toString()
+            Log.i("test","$input")
+            if (input == "apple") {
+                viewModel.getListNews("apple")
+                Snackbar.make(binding.listNews, "apple article", Snackbar.LENGTH_SHORT).show()
+            } else if (input == "tesla") {
+                viewModel.getListNews("tesla")
+                Snackbar.make(binding.listNews, "tesla article", Snackbar.LENGTH_SHORT).show()
+            } else {
+                Snackbar.make(binding.listNews, "article not found", Snackbar.LENGTH_SHORT).show()
+            }
+        }
+
+
     }
+
 
     companion object {
         /**

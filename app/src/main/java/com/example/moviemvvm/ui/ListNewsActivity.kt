@@ -30,7 +30,6 @@ class ListNewsActivity : AppCompatActivity() {
         binding.listNews.layoutManager = LinearLayoutManager(applicationContext)
 
 
-
         val button: Button = findViewById(R.id.btnNewsApple)
         button.setOnClickListener {
             Toast.makeText(this, "apple news", Toast.LENGTH_SHORT).show()
@@ -46,36 +45,37 @@ class ListNewsActivity : AppCompatActivity() {
             viewModel.getListNews("tesla")
         }
 
-
         editText = findViewById(R.id.etInputNews)
-
-
-
         val btnSearch: Button = findViewById(R.id.btnNewsSearch)
         btnSearch.setOnClickListener {
             input = editText.text.toString()
             if (input == "apple") {
                 viewModel.getListNews("apple")
-                Snackbar.make(findViewById(R.id.listNews),"apple article",Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(findViewById(R.id.listNews), "apple article", Snackbar.LENGTH_SHORT)
+                    .show()
 
-            } else if (input == "tesla"){
+            } else if (input == "tesla") {
                 viewModel.getListNews("tesla")
-                Snackbar.make(findViewById(R.id.listNews),"tesla article",Snackbar.LENGTH_SHORT).show()
-            }
-            else {
-                Snackbar.make(findViewById(R.id.listNews),"Article not found",Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(findViewById(R.id.listNews), "tesla article", Snackbar.LENGTH_SHORT)
+                    .show()
+            } else {
+                Snackbar.make(
+                    findViewById(R.id.listNews),
+                    "Article not found",
+                    Snackbar.LENGTH_SHORT
+                ).show()
             }
         }
         //default adapter
         viewModel.getListNews("tesla")
         setObserver()
     }
-    private fun setObserver(){
+
+    private fun setObserver() {
         viewModel.getNews().observe(this, Observer {
             Log.d("List news activity", "response = $it")
             adapter = NewsAdapter(it.articles)
             binding.listNews.adapter = adapter
         })
-
     }
 }
