@@ -1,23 +1,29 @@
 package com.example.moviemvvm.ui.fragment
 
+import android.app.ProgressDialog.show
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
-import androidx.activity.viewModels
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviemvvm.R
 import com.example.moviemvvm.databinding.ActivityListNewsBinding
+
+import com.example.moviemvvm.databinding.FragmentBottomSheetBinding
 import com.example.moviemvvm.ui.adapter.NewsAdapter
 import com.example.moviemvvm.ui.viewmodel.ListNewsViewModel
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.Dispatchers.Main
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -41,6 +47,7 @@ class newsFragment : Fragment() {
     lateinit var editText: EditText
     lateinit var input: String
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -50,7 +57,6 @@ class newsFragment : Fragment() {
         }
 
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -81,7 +87,6 @@ class newsFragment : Fragment() {
         val btnSearch: Button = binding.btnNewsSearch
         btnSearch.setOnClickListener {
             input = editText.text.toString()
-            Log.i("test","$input")
             if (input == "apple") {
                 viewModel.getListNews("apple")
                 Snackbar.make(binding.listNews, "apple article", Snackbar.LENGTH_SHORT).show()
@@ -92,6 +97,18 @@ class newsFragment : Fragment() {
                 Snackbar.make(binding.listNews, "article not found", Snackbar.LENGTH_SHORT).show()
             }
         }
+        val btnPopup : Button = binding.btnpopup
+        btnPopup.setOnClickListener {
+//            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+//            transaction.replace(R.id.frameContainer, BottomSheet())
+//            transaction.disallowAddToBackStack()
+//            transaction.commit()
+            val bottomSheetFragment = BottomSheetFragment()
+            bottomSheetFragment.show(requireActivity().supportFragmentManager, "Bottomsheetdialog")
+        }
+
+
+
 
 
     }
