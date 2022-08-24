@@ -14,6 +14,8 @@ import com.example.moviemvvm.R
 import com.example.moviemvvm.databinding.ActivityListNewsBinding
 import com.example.moviemvvm.ui.adapter.NewsAdapter
 import com.example.moviemvvm.ui.viewmodel.ListNewsViewModel
+import com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.snackbar.Snackbar
 
 class ListNewsActivity : AppCompatActivity() {
@@ -31,51 +33,23 @@ class ListNewsActivity : AppCompatActivity() {
 
 
 
-        val button: Button = findViewById(R.id.btnNewsApple)
-        button.setOnClickListener {
-            Toast.makeText(this, "apple news", Toast.LENGTH_SHORT).show()
-//            val apple = println("apple")
-            viewModel.getListNews("apple")
-
-
-        }
-        val buttons: Button = findViewById(R.id.btnNewsTesla)
-        buttons.setOnClickListener {
-            Toast.makeText(this, "tesla news", Toast.LENGTH_SHORT).show()
-//            val apple = println("apple")
-            viewModel.getListNews("tesla")
-        }
-
-
-        editText = findViewById(R.id.etInputNews)
-
-
-
-        val btnSearch: Button = findViewById(R.id.btnNewsSearch)
-        btnSearch.setOnClickListener {
-            input = editText.text.toString()
-            if (input == "apple") {
-                viewModel.getListNews("apple")
-                Snackbar.make(findViewById(R.id.listNews),"apple article",Snackbar.LENGTH_SHORT).show()
-
-            } else if (input == "tesla"){
-                viewModel.getListNews("tesla")
-                Snackbar.make(findViewById(R.id.listNews),"tesla article",Snackbar.LENGTH_SHORT).show()
-            }
-            else {
-                Snackbar.make(findViewById(R.id.listNews),"Article not found",Snackbar.LENGTH_SHORT).show()
-            }
+        val btnPopup : Button = binding.btnpopup
+        btnPopup.setOnClickListener {
+            val bottomSheetDialog = BottomSheetDialog(
+                this@ListNewsActivity, com.google.android.material.R.style.Theme_Design_BottomSheetDialog
+            )
+            Snackbar.make(binding.listNews, "yuyu", Snackbar.LENGTH_SHORT).show()
         }
         //default adapter
         viewModel.getListNews("tesla")
         setObserver()
     }
-    private fun setObserver(){
+
+    private fun setObserver() {
         viewModel.getNews().observe(this, Observer {
             Log.d("List news activity", "response = $it")
             adapter = NewsAdapter(it.articles)
             binding.listNews.adapter = adapter
         })
-
     }
 }
